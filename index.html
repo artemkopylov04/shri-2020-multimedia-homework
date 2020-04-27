@@ -5,43 +5,34 @@
     <title>Test streams</title>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script src="initVideo.js"></script>
-    <style>
-        .video {
-            width: 300px;
-            height: 200px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<video id="video-1" class="video" controls muted autoplay></video>
-<video id="video-2" class="video" controls muted autoplay></video>
+<div class="popupBackground"></div>
+
+<video id="video-1" class="video" muted autoplay></video>
+<video id="video-2" class="video" muted autoplay></video>
 <br>
-<video id="video-3" class="video" controls muted autoplay></video>
-<video id="video-4" class="video" controls muted autoplay></video>
-<script>
-    initVideo(
-        document.getElementById('video-1'),
-        'http://localhost:9191/master?url=http%3A%2F%2Flocalhost%3A3102%2Fstreams%2Fsosed%2Fmaster.m3u8'
-    );
+<video id="video-3" class="video" muted autoplay></video>
+<video id="video-4" class="video" muted autoplay></video>
 
-    initVideo(
-        document.getElementById('video-2'),
-        'http://localhost:9191/live?url=http%3A%2F%2Flocalhost%3A3102%2Fstreams%2Fstairs%2Fmaster.m3u8'
-    );
+<button class="closeButton">Все камеры</button>
 
-    initVideo(
-        document.getElementById('video-3'),
-        'http://localhost:9191/master?url=http%3A%2F%2Flocalhost%3A3102%2Fstreams%2Fdog%2Fmaster.m3u8'
-    );
+<div>
+    <input type="range" id="brightness" name="brightness"
+           min="50" max="150" value="100" step="10">
+    <label for="brightness">Brightness <span id="brightness-value">100</span></label>
+  </div>
+  
+  <div>
+    <input type="range" id="contrast" name="contrast" 
+           min="50" max="150" value="100" step="10">
+    <label for="contrast">Contrast <span id="contrast-value">100</span></label>
+</div>
 
-    initVideo(
-        document.getElementById('video-4'),
-        'http://localhost:9191/live?url=http%3A%2F%2Flocalhost%3A3102%2Fstreams%2Fstreet%2Fmaster.m3u8'
-    );
+<canvas id="oscilloscope"></canvas>
 
-</script>
-
-
+<script src="index.js"></script>
 </body>
 </html>
